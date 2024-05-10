@@ -7,6 +7,13 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [tours, setTours] = useState(data)
 
+  const removeTours = (id) => {
+    const newTours = tours.filter((tour) => tour.id !== id);
+    setTours(newTours);
+  }
+
+
+//encountered issues with the API so I resolved to using local data
 /*  const fetchTours = async () => {
     setLoading(true) //checks to verify and ensure the loading state is true
 
@@ -32,9 +39,23 @@ function App() {
       </main>
     );
   }
+  if (tours.length === 0){
+    return(
+      <main>
+        <div className="title">
+          <h2>no tours left</h2>
+          <div className="underline"></div>
+          <button className="btn" >Refresh</button>
+        </div>
+      </main>
+    )
+  }
   return (
     <main>
-      <Tours tours={tours}/>
+      <Tours 
+        tours={tours}
+        removeTours={removeTours}
+      />
     </main>
   );
 }
