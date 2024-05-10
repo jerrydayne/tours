@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import Loading from './Loading'
 import Tours from './Tours'
-const url = 'https://course-api.com/react-tours-project'
+import data from './data'
+//const url = 'https://course-api.com/react-tours-project'
 function App() {
-  const [loading, setLoading] = useState(true)
-  const [tours, setTours] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [tours, setTours] = useState(data)
 
-  const fetchTours = async () => {
+/*  const fetchTours = async () => {
     setLoading(true) //checks to verify and ensure the loading state is true
 
     try {
@@ -23,7 +24,7 @@ function App() {
   useEffect(() => {
     fetchTours();
   }, []);
-
+*/
   if (loading) {
     return(
       <main>
